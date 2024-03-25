@@ -1,0 +1,17 @@
+network:
+  version: 2
+  renderer: networkd
+
+  ethernets:
+     enp0s8:
+      dhcp4: no
+      addresses:
+        - 192.168.10.91/24
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 1.1.1.1
+      routes:  # Add this section
+        - to: default
+          via: 192.168.1.1  # Replace with your actual NAT network gateway IP
+
